@@ -23,9 +23,14 @@ listContainer.addEventListener('click' ,function(e){
         e.target.classList.toggle("checked");
         saveData();
     }
-    else if(e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
-        saveData();
+    else if (e.target.tagName === "SPAN") {
+        const li = e.target.parentElement;
+        li.classList.add('remove');
+        // Wait for the animation to complete before removing from DOM
+        li.addEventListener('animationend', function() {
+            li.remove();
+            saveData();
+        }, { once: true }); // ensures it runs only once
     }
 });
 

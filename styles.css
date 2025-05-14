@@ -109,6 +109,21 @@ ul li span:hover{
     text-decoration: line-through;
 }
 
+.remove{
+    animation: moveLeft 1s ease forwards;
+}
+
+@keyframes moveLeft {
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
 .checked::before{
     background-image: url(checked.png);
 }
